@@ -1,5 +1,6 @@
 import '../src/styles/Button.css'
 import styles from '../src/styles/Button.module.css'
+import { Counter } from './components/Counter/Counter'
 
 const sectionStyles = {
   width: '30%',
@@ -11,7 +12,9 @@ const Library = ({ title, children }) => {
     <section style={{ ...sectionStyles, color: 'salmon' }}>
       <h1>{title}</h1>
       {/* <button className="Button">PRESS ME</button> */}
-      <button className={styles.Button}>PRESS ME</button>
+      <button onClick={(event) => console.log(event)} className={styles.Button}>
+        PRESS ME
+      </button>
       {children}
     </section>
   )
@@ -46,6 +49,7 @@ function App() {
       <Library title={libraryTitle[2]}>
         <BookList books={favouriteBooks} />
       </Library>
+      <Counter />
     </div>
   )
 }
