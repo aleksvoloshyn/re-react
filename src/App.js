@@ -1,26 +1,13 @@
-const Card = ({ title, children }) => {
+const Library = ({ title, children }) => {
   return (
     <>
-      <h1>title</h1>
+      <h1>{title}</h1>
       {children}
     </>
   )
 }
 
-const Contact = ({ name, age, weight }) => {
-  return (
-    <div>
-      {name[0] === 'B' && (
-        <>
-          {' '}
-          <span>Name: {name}</span>
-          <span>Age: {age}</span>
-          <span>Weight: {weight}</span>
-        </>
-      )}
-    </div>
-  )
-}
+const libraryTitle = ['FIRST', 'SECOND', 'THIRD']
 
 const favouriteBooks = [
   { id: 'id-1', name: 'JS for beginners' },
@@ -31,22 +18,25 @@ const favouriteBooks = [
 
 const BookList = ({ books }) => (
   <ul>
-    {books.map((book) => (
-      <li key={book.id}>{book.name}</li>
-    ))}
+    {books.map(
+      (book) => book.name[0] === 'R' && <li key={book.id}>{book.name}</li>
+    )}
   </ul>
 )
 
 function App() {
   return (
     <div className="App">
-      REACT
-      <Card title="Person">
-        <Contact name="Beavis" weight="40" age="14" />
-        <Contact name="Butthead" weight="45" age="14" />
-        <Contact name="Cartman" weight="140" age="10" />
-      </Card>
-      <BookList books={favouriteBooks} />
+      REACT-RESTUDY
+      <Library title={libraryTitle[0]}>
+        <BookList books={favouriteBooks} />
+      </Library>
+      <Library title={libraryTitle[1]}>
+        <BookList books={favouriteBooks} />
+      </Library>
+      <Library title={libraryTitle[2]}>
+        <BookList books={favouriteBooks} />
+      </Library>
     </div>
   )
 }
