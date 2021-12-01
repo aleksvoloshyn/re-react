@@ -1,12 +1,21 @@
-const Library = ({ title, children }) => {
-  return (
-    <>
-      <h1>{title}</h1>
-      {children}
-    </>
-  )
+import '../src/styles/Button.css'
+import styles from '../src/styles/Button.module.css'
+
+const sectionStyles = {
+  width: '30%',
+  border: '1px solid grey',
 }
 
+const Library = ({ title, children }) => {
+  return (
+    <section style={{ ...sectionStyles, color: 'salmon' }}>
+      <h1>{title}</h1>
+      {/* <button className="Button">PRESS ME</button> */}
+      <button className={styles.Button}>PRESS ME</button>
+      {children}
+    </section>
+  )
+}
 const libraryTitle = ['FIRST', 'SECOND', 'THIRD']
 
 const favouriteBooks = [
